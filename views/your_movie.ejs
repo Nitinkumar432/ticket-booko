@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>you movies section</title>
+    <link rel="stylesheet" href="css/your_movie.css">
+    <script src="javascripts/your_movie.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">TicketBooking</div>
+        <nav>
+            <ul>
+                <li><a href="#">Book Tickets</a></li>
+                <li><a href="/explore-movie">EXplore Movies</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">About Us</a></li>
+              <%if(user.userType=='admin'){%>
+                    <li class="addmovie"><a href="/post-movie">Add Movies</a></li>
+                    <%}%>
+              
+            </ul>
+        </nav>
+      
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search events, destinations...">
+        </div>
+        <nav>
+     
+        <div class="dropdown">
+            <button class="dropbtn">Profile &#9662;</button>
+            <div class="dropdown-content">
+                <%if(user.userType=='admin'){%>
+                    <a href="/your-movies">Your Movies</a>
+                    <%}%>
+                <a href="#">Settings</a>
+                <a href="#">Recent Movies</a>
+                <a href="#">Refund</a>
+            </div>
+        </div>
+    </nav>
+    </header>
+    <div class="movie-container">
+        <h1>Welcome, <%= user.email %>! Here are your movies:</h1>
+        <div class="search-bar">
+            <input type="text" id="movieSearch" placeholder="Search movies..." onkeyup="searchMovies()">
+        </div>
+        <% if (movies && movies.length > 0) { %>
+            <div class="movies-list">
+                <% movies.forEach(movie => { %>
+                    <div class="movie-item">
+                        <img src="<%= movie.posterUrl %>" alt="<%= movie.title %>">
+                        <h3><%= movie.title %></h3>
+                        <div class="movie-details">
+                            <p><strong>Genre:</strong> <%= movie.genre %></p>
+                          
+                            <p><strong>Release Date:</strong> <%= new Date(movie.releaseDate).toLocaleDateString('en-GB') %></p>
+                            <p><strong>Description:</strong> <%= movie.description %></p>
+                            <p><strong>Director:</strong> <%= movie.director %></p>
+                            <p><strong>Cast:</strong> <%= movie.cast.join(', ') %></p>
+                            <p><strong>Runtime:</strong> <%= movie.runtime %> minutes</p>
+                            <p><strong>Language:</strong> <%= movie.language %></p>
+                            <p><strong>Country:</strong> <%= movie.country %></p>
+                            <p><strong>Rating:</strong> <%= movie.rating %></p>
+                            <p><strong>Tags:</strong> <%= movie.tags.join(', ') %></p>
+                            <p><strong>Posted By:</strong> <%= movie.posted_by %></p>
+                            <a  onclick="openModal('<%= movie.trailerUrl %>')">Watch Trailer</a>
+                        </div>
+                        <button onclick="editMovie('<%= movie._id %>')">Edit</button>
+                        <button class="delete-btn" onclick="confirmDelete('<%= movie._id %>')">Delete</button>
+                        
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No movies found that you have posted.</p>
+        <% } %>
+    </div>
+<!-- Modal Structure -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="trailerFrame" width="800" height="450" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+    <!-- Include any additional scripts or functionality -->
+    <script>
+        function editMovie(movieId) {
+            // Logic for editing a movie
+            window.location.href = `/edit-movie/${movieId}`;
+        }
+
+        function confirmDelete(movieId) {
+            if (confirm('Are you sure you want to delete this movie?')) {
+                // Send DELETE request to server
+                fetch(`/delete-movie/${movieId}`, {
+                    method: 'DELETE',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Show success or error message
+                    if (data.message === 'Movie deleted successfully!') {
+                        // Refresh the page or remove the movie item from the DOM
+                        window.location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to delete movie. Please try again later.');
+                });
+            }
+        }
+        function searchMovies() {
+            const input = document.getElementById('movieSearch').value.toLowerCase();
+            const movieItems = document.querySelectorAll('.movie-item');
+            
+            movieItems.forEach(item => {
+                const title = item.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-content">
+                <div class="company-info">
+                    <p>&copy; 2024 TicketBooking. All rights reserved.</p>
+                    <p>Contact us: info@ticketbooking.com</p>
+                    <p>Follow us:</p>
+                    <!-- Social media links -->
+                    <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+    </footer>
+    
+</body>
+</html>

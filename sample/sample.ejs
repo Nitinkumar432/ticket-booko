@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>you movies section</title>
+    <link rel="stylesheet" href="css/your_movie.css">
+    <script src="javascripts/your_movie.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">TicketBooking</div>
+        <nav>
+            <ul>
+                <li><a href="#">Book Tickets</a></li>
+                <li><a href="/explore-movie">EXplore Movies</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">About Us</a></li>
+              <%if(user.userType=='admin'){%>
+                    <li class="addmovie"><a href="/post-movie">Add Movies</a></li>
+                    <%}%>
+              
+            </ul>
+        </nav>
+      
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search events, destinations...">
+        </div>
+        <nav>
+     
+        <div class="dropdown">
+            <button class="dropbtn">Profile &#9662;</button>
+            <div class="dropdown-content">
+                <%if(user.userType=='admin'){%>
+                    <a href="/your-movies">Your Movies</a>
+                    <%}%>
+                <a href="#">Settings</a>
+                <a href="#">Recent Movies</a>
+                <a href="#">Refund</a>
+            </div>
+        </div>
+    </nav>
+    </header>
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-content">
+                <div class="company-info">
+                    <p>&copy; 2024 TicketBooking. All rights reserved.</p>
+                    <p>Contact us: info@ticketbooking.com</p>
+                    <p>Follow us:</p>
+                    <!-- Social media links -->
+                    <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+    </footer>
+    
+</body>
+</html>

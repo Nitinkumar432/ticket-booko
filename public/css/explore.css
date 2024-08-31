@@ -82,10 +82,47 @@ nav ul li a:hover {
 
 .featured-events h2 {
     font-size: 32px;
-    margin-bottom: 20px;
+
     color: #ff6b6b;
 }
 
+/* Slider Styles */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.slider-container {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    background-color: #282828;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 15px;
+    flex: 1 1 100%; /* Adjust as needed */
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.slider-item img {
+    width: 400px;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+}
+
+.slider-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Event Grid Styles */
 .event-grid {
     display: flex;
     flex-wrap: wrap;
@@ -95,6 +132,7 @@ nav ul li a:hover {
 
 .event-item {
     background-color: #282828;
+    max-height:600px;
     border-radius: 15px;
     overflow: hidden;
     padding: 15px;
@@ -105,30 +143,38 @@ nav ul li a:hover {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.event-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
 .event-item img {
-   width: 400px;
-    height:200px;
+    width: 10px;
+    height: 30px;
     border-radius: 10px 10px 0 0;
 }
 
 .event-details {
     padding: 20px;
+    position: relative;
 }
 
-.event-details h3 {
-    margin-bottom: 10px;
-    font-size: 22px;
-    color: #ff6b6b;
+/* Scrollable Details Section */
+.event-more-details {
+    max-height: 150px; /* Adjust based on your design needs */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #333; /* Slightly different background for better readability */
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
-.event-details p {
-    margin-bottom: 5px;
-    color: #ccc;
+.event-more-details::-webkit-scrollbar {
+    width: 8px;
+}
+
+.event-more-details::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.event-more-details::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 button {
@@ -266,4 +312,83 @@ footer {
 padding-left:10px;
 padding-right:10px;
    background-color: #e55e5e;
+}
+.filter-section {
+    padding: 20px;
+
+    background-color: #1a1919;
+    color:white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 1600px;
+}
+
+.filter-container h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+
+.filter-group.full-width {
+    flex: 1 1 100%;
+}
+
+.filter-group label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+   width:200px;
+}
+
+.filter-group input[type="number"] {
+    width:200px;
+    -moz-appearance: textfield;
+}
+
+.filter-group input[type="number"]::-webkit-inner-spin-button,
+.filter-group input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filter-button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top:0px;
+    transition: background-color 0.3s;
+   /* Full width for button */
+    /* Space above button */
+}
+
+.filter-button:hover {
+    background-color: #e03572;
 }

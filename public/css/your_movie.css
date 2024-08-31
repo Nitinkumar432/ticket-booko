@@ -1,0 +1,339 @@
+/* General styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+header {
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6b6b;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    width: 250px;
+    transition: width 0.4s ease-in-out;
+}
+
+.search-bar input:focus {
+    width: 350px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+    overflow: hidden;
+}
+/* footer */
+
+footer {
+    margin-bottom:0px;
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: #ff6b6b;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-content .company-info a {
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-content .company-info a:hover {
+    color: #ff6b6b;
+}
+.addmovie{
+    margin-left: 0px;
+   border-radius: 15px;
+   border:2px solid red;
+padding-left:10px;
+padding-right:10px;
+   background-color: #e55e5e;
+}
+/* dropdown */
+
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+}
+
+.dropbtn {
+    background-color: #131212;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+   
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #7a7575;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* your movie section ok */
+/* Your Movies Page Styles */
+/* Container for the entire movie list */
+.movie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styling for the search bar container */
+.search-bar {
+    margin-bottom: 20px;
+}
+
+/* Input styling for the search bar */
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Grid layout for movie items */
+/* Grid layout for movie items */
+.movies-list {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Four movies per row */
+    gap: 20px; /* Space between each movie item */
+    align-items: start; /* Align items at the start */
+}
+
+/* Styling for individual movie item */
+.movie-item {
+    background-color: #292828;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px; /* Compact padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex; /* Flexbox layout for items */
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    height: 400px; /* Fixed height */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* For positioning */
+}
+
+/* Add scrollbar for overflow */
+.movie-item .movie-details {
+    overflow-y: auto; /* Vertical scrollbar */
+    max-height: 250px; /* Limit the height of the details section */
+    width: 100%; /* Full width */
+    margin-bottom: 10px; /* Space below details */
+}
+
+/* Styling for movie image */
+.movie-item img {
+    width: 170px; /* Fixed width */
+    height: 80px; /* Auto height to maintain aspect ratio */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Styling for movie title */
+.movie-item h3 {
+    color: #ff6b6b;
+    font-size: 20px; /* Reduced font size for title */
+    margin-bottom: 10px;
+    text-align: center; /* Center align title */
+}
+
+/* Styling for movie details */
+.movie-details {
+    font-size: 14px; /* Reduced font size for details */
+    text-align: center; /* Center align text */
+}
+
+.movie-item a {
+            padding: 10px 15px;
+            margin-top: 10px;
+            margin-right: 5px;
+           
+            color: rgb(0, 89, 255);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block;
+            text-align: center;
+        }
+/* Styling for buttons */
+.movie-item button {
+    padding: 8px 30px; /* Smaller button size */
+    margin-top: 10px;
+    font-weight: bold;
+    margin-right: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+}
+
+.movie-item button:hover {
+    background-color: #0056b3;
+}
+
+.movie-item button.delete-btn {
+    background-color: #dc3545;
+}
+
+.movie-item button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1200px) {
+    .movies-list {
+        grid-template-columns: repeat(3, 1fr); /* Three movies per row */
+    }
+}
+
+@media (max-width: 800px) {
+    .movies-list {
+        grid-template-columns: repeat(2, 1fr); /* Two movies per row */
+    }
+}
+
+@media (max-width: 500px) {
+    .movies-list {
+        grid-template-columns: 1fr; /* One movie per row */
+    }
+}
+/* pop trailer video */
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #000000;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 900px; /* Maximum width */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive iframe */
+iframe {
+    width: 100%; /* Make the iframe take up the full width of the modal */
+    height: 450px; /* Adjust the height to your needs */
+}

@@ -68,109 +68,7 @@ nav ul li a:hover {
     margin: 20px 0;
     overflow: hidden;
 }
-
-/* Slideshow container */
-
-
-/* Hide the slides by default */
-
-.featured-events {
-    padding: 40px;
-    background-color: #111;
-    text-align: center;
-}
-
-.featured-events h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #ff6b6b;
-}
-
-.event-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-
-.event-item {
-    background-color: #282828;
-    border-radius: 15px;
-    overflow: hidden;
-    padding: 15px;
-    flex: 1 1 calc(33.333% - 30px); /* Adjust for spacing */
-    box-sizing: border-box;
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.event-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
-.event-item img {
-   width: 400px;
-    height:200px;
-    border-radius: 10px 10px 0 0;
-}
-
-.event-details {
-    padding: 20px;
-}
-
-.event-details h3 {
-    margin-bottom: 10px;
-    font-size: 22px;
-    color: #ff6b6b;
-}
-
-.event-details p {
-    margin-bottom: 5px;
-    color: #ccc;
-}
-
-button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 25px;
-    margin-top: 10px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background-color: #e55e5e;
-    transform: scale(1.05);
-}
-
-
-.testimonials {
-    padding: 40px;
-    background-color: #111;
-    color: #fff;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #ff6b6b;
-}
-
-.testimonial-item {
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.testimonial-item h4 {
-    margin-top: 10px;
-    font-weight: normal;
-    color: #ff6b6b;
-}
+/* footer */
 
 footer {
     background-color: #222;
@@ -209,17 +107,15 @@ footer {
 .footer-content .company-info a:hover {
     color: #ff6b6b;
 }
-/* slide show code */
-.mySlides {
-    width:100%;
-    height:500px;
-    zoom: 80%;
-
-
+.addmovie{
+    margin-left: 0px;
+   border-radius: 15px;
+   border:2px solid red;
+padding-left:10px;
+padding-right:10px;
+   background-color: #e55e5e;
 }
-/* drop down profile */
-/* styles.css */
-
+/* dropdown */
 
 .dropdown {
     position: relative;
@@ -258,12 +154,4 @@ footer {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-.addmovie{
-    margin-left: 0px;
-   border-radius: 15px;
-   border:2px solid red;
-padding-left:10px;
-padding-right:10px;
-   background-color: #e55e5e;
 }
