@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            overflow: hidden;
+            position: relative; /* To position balloons and other elements */
+        }
+
+        .confirmation {
+            position: relative;
+            text-align: center;
+            z-index: 1; /* Ensure this is above balloons */
+        }
+
+        .ticket {
+            width: 200px; /* Set the width of the ticket */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0; /* Start invisible */
+            animation: drop 2s forwards; /* Animation for the ticket */
+        }
+
+        @keyframes drop {
+            0% {
+                top: 50%;
+                opacity: 1; /* Fully visible */
+                transform: translate(-50%, -50%) scale(1); /* Centered */
+            }
+            50% {
+                transform: translate(-50%, -60%) scale(1.1); /* Slightly larger */
+            }
+            100% {
+                top: 80%; /* Move to the bottom */
+                opacity: 0; /* Fade out */
+                transform: translate(-50%, -50%) scale(0.5); /* Reduce size */
+            }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px; /* Start below the screen */
+            width: 50px;
+            height: 70px;
+            background-color: #FF4C4C; /* Balloon color */
+            border-radius: 50px 50px 0 0; /* Rounded top */
+            animation: float 5s forwards; /* Float animation */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes float {
+            0% {
+                bottom: -100px; /* Start below the screen */
+                opacity: 1; /* Fully visible */
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-10px); /* Move slightly left */
+            }
+            100% {
+                bottom: 100%; /* Move to the top */
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #FFB84D; /* Different color */
+            animation-delay: 1s; /* Delay for a staggered effect */
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #4CFF4C; /* Another color */
+            animation-delay: 2s; /* Delay for a staggered effect */
+        }
+
+        .message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .celebration {
+            font-size: 28px;
+            color: #FF4C4C;
+            animation: pop 1.5s forwards; /* Animation for the celebration text */
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+                opacity: 0; /* Start invisible */
+            }
+            50% {
+                transform: scale(1.2); /* Slightly larger */
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1; /* Fully visible */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation">
+        <div class="message">Your Ticket Has Been Booked!</div>
+        <div class="celebration">🎉 Celebrate Your Movie Night! 🎉</div>
+        <div class="balloon" style="left: 10%;"></div>
+        <div class="balloon" style="left: 30%;"></div>
+        <div class="balloon" style="left: 50%;"></div>
+        <div class="balloon" style="left: 70%;"></div>
+        <div class="balloon" style="left: 90%;"></div>
+        <img src="path/to/your-ticket-image.png" alt="Ticket" class="ticket" id="ticket">
+    </div>
+
+    <script>
+        window.onload = function() {
+            const ticket = document.getElementById('ticket');
+            ticket.style.opacity = 1; // Make the ticket visible
+        };
+
+        // Optional: You can redirect after a certain time
+        setTimeout(() => {
+            window.location.href = '/booking-success'; // Redirect to a success page
+        }, 4000); // Adjust time as needed (4000 ms = 4 seconds)
+    </script>
+</body>
+</html>

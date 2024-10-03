@@ -1,5 +1,5 @@
 body{
-  background-image: url("https://user-images.githubusercontent.com/50502036/131707309-b3d1a166-309b-4579-a777-225cea8ec22d.gif");
+ 
 }
 .navbar {
   display: flex;
@@ -553,4 +553,82 @@ to {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+/* premire section */
+.premiere-container {
+  background-color: #1e1e2f;
+  padding: 50px 20px;
+  color: white;
+}
+.premiere-container h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.premiere-container p {
+  margin-bottom: 40px;
+  color: #bbbbbb;
+}
+.card {
+  background-color: #2a2a48;
+  border: none;
+  transition: all 0.3s ease;
+}
+.card img {
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+.card:hover img {
+  transform: scale(1.08);
+}
+.card-body {
+  padding: 15px 10px;
+  text-align: center;
+}
+.card-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.card-text {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+}
+.premiere-badge {
+  background-color: #ff4a57;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.row {
+  margin-bottom: 20px;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+  backdrop-filter: blur(5px); /* Blur effect */
+}
+
+.loading-spinner {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  background: url('https://i.pinimg.com/originals/c7/e1/b7/c7e1b7b5753737039e1bdbda578132b8.gif') no-repeat center center; /* Replace with your loading image */
+  background-size: contain; /* Ensure the image fits well */
+  animation: spin 1s linear infinite; /* Spinner animation */
 }

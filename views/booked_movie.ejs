@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booked Movies</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Custom Font -->
+    <style>
+        body {
+            background-color: #e0f7fa; /* Soft light blue background */
+            font-family: 'Poppins', sans-serif; /* Custom font */
+        }
+
+        h1 {
+            color: #00695c; /* Dark teal title color */
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for title */
+        }
+
+        .card {
+            margin: 15px 0;
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s; /* Animation */
+            background: linear-gradient(135deg, #ffffff, #b2ebf2); /* Gradient background */
+            border-radius: 15px; /* Rounded corners */
+            position: relative; /* For tag positioning */
+            overflow: hidden; /* Clip the child elements */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            
+            background-color: #ff4081; /* Pink tag color */
+            color: white;
+            padding: 8px 12px; /* Increased padding */
+            border-radius: 8px; /* Rounded tag */
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transform: rotate(-5deg); /* Slight rotation */
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02); /* Lift and slightly enlarge on hover */
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+            opacity: 0.95; /* Slight fade effect */
+        }
+
+        .card-title {
+            margin-top:40px;
+            color: #004d40; /* Darker teal for movie title */
+            font-size: 1.5rem; /* Increased font size */
+            font-weight: 600; /* Bold font */
+        }
+
+        .card-text {
+            color: #00796b; /* Medium teal for text */
+            font-size: 1.1rem; /* Slightly larger text */
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            transition: transform 0.3s; /* Animation for download button */
+        }
+
+        .download-btn a {
+            background-color: #00796b; /* Button color */
+            color: white; /* Button text color */
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px; /* Rounded button */
+            padding: 10px 15px; /* Padding for button */
+            text-decoration: none; /* No underline */
+        }
+
+        .download-btn a:hover {
+            background-color: #004d40; /* Darker button color on hover */
+            transform: scale(1.05); /* Slightly grow on hover */
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        #searchInput {
+            border-radius: 25px; /* Rounded search input */
+            padding: 10px 20px; /* Increased padding */
+            border: 1px solid #00796b; /* Border color */
+        }
+
+        #searchInput:focus {
+            box-shadow: 0 0 5px rgba(0, 121, 107, 0.5); /* Focus shadow */
+            outline: none; /* Remove outline */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Your Booked Movies</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by movie name" onkeyup="filterMovies()">
+        </div>
+
+        <div id="movieList" class="row">
+            <% allBookedMovie.forEach(movie => { %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="tag">Booked</div> <!-- Tag added here -->
+                        <div class="card-body">
+                            <h5 class="card-title"><%= movie.movieName %></h5>
+                            <p class="card-text"><strong>Seat Type:</strong> <%= movie.seatType %></p>
+                            <p class="card-text"><strong>Seats:</strong> <%= movie.seats.join(', ') %></p>
+                            <p class="card-text"><strong>Total Price:</strong> &#x20b9; <%= movie.totalPrice.toFixed(2) %></p>
+                            <p class="card-text"><strong>Payment Method:</strong> <%= movie.paymentMethod %></p>
+                            <p class="card-text"><strong>Slot:</strong> <%= movie.slot %></p>
+                            <p class="card-text"><strong>Timing:</strong> <%= movie.timing %></p>
+                            <p class="card-text"><strong>Location:</strong> <%= movie.location %></p>
+                            <p class="card-text"><strong>Date of Booking:</strong> <%= movie.dateOfBooking %></p>
+                            <div class="download-btn">
+                                <a href="/download_ticket/<%= movie._id %>" class="btn">
+                                    <i class="fas fa-download"></i> Download Ticket
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <script>
+        function filterMovies() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const movieList = document.getElementById('movieList');
+            const cards = movieList.getElementsByClassName('col-md-4');
+
+            for (let i = 0; i < cards.length; i++) {
+                const movieTitle = cards[i].getElementsByClassName('card-title')[0];
+                if (movieTitle) {
+                    const textValue = movieTitle.textContent || movieTitle.innerText;
+                    cards[i].style.display = textValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+                }
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

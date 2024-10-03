@@ -267,3 +267,156 @@ padding-left:10px;
 padding-right:10px;
    background-color: #e55e5e;
 }
+/* data */
+.custom-premiere-container {
+    background-color: #1e1e2f;
+    padding: 50px 20px;
+    color: white;
+  }
+  .custom-premiere-container h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .custom-premiere-container p {
+    margin-bottom: 40px;
+    color: #bbbbbb;
+  }
+  .custom-card {
+    background-color: #2a2a48;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .custom-card img {
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+  .custom-card:hover img {
+    transform: scale(1.08);
+  }
+  .custom-card-body {
+    padding: 15px 10px;
+    text-align: center;
+  }
+  .custom-card-title {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .custom-card-text {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+  }
+  .custom-premiere-badge {
+    background-color: #ff4a57;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+  .custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .custom-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .custom-col {
+    flex: 0 1 calc(20% - 20px); /* This ensures 5 cards fit in a row with spacing */
+    margin-bottom: 20px;
+  }
+  /* image size fixing */
+  .imgfix img{
+    height:300px;
+    width:240px;
+  }
+/* custom navbar */
+.custom-navbar {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #ddd;
+  }
+  .custom-nav-item a {
+    color: #555;
+    font-weight: 500;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .custom-nav-item a:hover {
+    color: #ff4a57;
+    text-decoration: none;
+  }
+  /* Hover Effect: Add underline animation */
+  .custom-nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff4a57;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+  .custom-nav-item a:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+  /* Adjust right-side items */
+  .custom-nav-right a {
+    margin-left: 30px;
+  }
+  .custom-navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  /* city  */
+  .city-btn {
+    background-color: #f8f9fa;
+    color: #ff4a57;
+    border: none;
+    margin: 10px 0;
+  }
+  .city-btn:hover {
+    background-color: #ff4a57;
+    color: #fff;
+  }
+  .city-icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: auto;
+  }
+  .city-name {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 500;
+  }
+  .popular-cities {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .popular-cities .city {
+    flex: 0 0 90px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .city {
+    text-align: center;
+  }
+  .modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .search-input {
+    margin-bottom: 20px;
+  }

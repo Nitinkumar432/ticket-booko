@@ -10,6 +10,9 @@
     "jwt-simple": "^0.5.6",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
+    "pdfkit": "^0.15.0",
     "session": "^0.1.0"
   }
 }
